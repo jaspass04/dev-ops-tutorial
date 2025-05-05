@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 
 app.get('/api/status', (req, res) => {
-  res.json({ status: 'operational', version: '1.0.0' });
+  res.json({ status: 'operational', version: '1.1.0' });
 });
 
 // Only start the server if the file is run directly (not in tests)
