@@ -10,7 +10,7 @@ describe('API Tests', function() {
             .end(function(err, res) {
                 if (err) return done(err);
                 expect(res.body).to.have.property('status', 'operational');
-                expect(res.body).to.have.property('version', '1.0.0');
+                expect(res.body).to.have.property('version', '1.1.0');
                 done();
             });
     });
