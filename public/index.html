@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .status-container {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .status {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<h1>DevOps Exercise Application</h1>
+<p>This is a simple web application deployed with CI/CD</p>
+
+<div class="status-container">
+    <h2>API Status</h2>
+    <p>Status: <span class="status" id="status">Checking...</span></p>
+    <p>Version: <span id="version">Checking...</span></p>
+</div>
+
+<script>
+    // Fetch API status
+    fetch('/api/status')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('status').textContent = data.status;
+            document.getElementById('version').textContent = data.version;
+        })
+        .catch(error => {
+            document.getElementById('status').textContent = 'Error';
+            document.getElementById('status').style.color = 'red';
+            console.error('Error fetching API status:', error);
+        });
+</script>
+</body>
+</html>
